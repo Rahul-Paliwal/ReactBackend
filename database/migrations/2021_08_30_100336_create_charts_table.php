@@ -15,8 +15,8 @@ class CreateChartsTable extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
-            $table->string('x-data');
-            $table->string('y-data');
+            $table->string('x_data');
+            $table->string('y_data');
             $table->timestamps();
         });
     }
