@@ -21,17 +21,16 @@ use App\Http\Controllers\Admin\ChartController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
 
+Route::get('/',[HomePageController::class,'HomePage']);
 Route::get('/logout',[AdminUserController::class,'AdminLogout'])->name('admin.logout');
-
 Route::prefix('admin')->group(function(){
+  
     Route::get('/user/profile',[AdminUserController::class,'AdminUserProfile'])->name('user.profile');
     Route::get('/user/profile/edit',[AdminUserController::class,'AdminUserProfileEdit'])->name('user.profile.edit');
     Route::post('/user/profile/store',[AdminUserController::class,'AdminUserProfileStore'])->name('user.profile.store');

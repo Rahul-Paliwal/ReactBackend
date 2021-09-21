@@ -8,6 +8,7 @@ use App\Models\HomePage;
 
 class HomePageController extends Controller
 {
+
     public function SelectVideo(){
         $result = HomePage::select('video_description','video_url')->get();
         return $result;
@@ -112,5 +113,9 @@ class HomePageController extends Controller
 
         return redirect()->back()->with($notification);
 
+    }
+
+    public function HomePage(){
+        return view('auth.login');
     }
 }
